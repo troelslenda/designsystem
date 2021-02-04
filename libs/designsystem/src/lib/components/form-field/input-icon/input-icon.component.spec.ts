@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { InputIconComponent } from './input-icon.component';
 
-import { InputPostfixComponent } from './input-postfix.component';
-
-describe('InputPostfixComponent', () => {
-  let component: InputPostfixComponent;
-  let fixture: ComponentFixture<InputPostfixComponent>;
+describe('InputIconComponent', () => {
+  let component: InputIconComponent;
+  let fixture: ComponentFixture<InputIconComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [InputPostfixComponent],
+      declarations: [InputIconComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputPostfixComponent);
+    fixture = TestBed.createComponent(InputIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

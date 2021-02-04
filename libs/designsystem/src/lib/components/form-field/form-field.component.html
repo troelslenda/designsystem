@@ -1,12 +1,12 @@
 <label *ngIf="label">
   <div class="text">{{ label }}</div>
-  <div class="prefix-postfix-group">
+  <div class="row">
     <ng-container *ngTemplateOutlet="slottedInput"></ng-container>
   </div>
 </label>
 
 <ng-container *ngIf="!label">
-  <div class="prefix-postfix-group">
+  <div class="row">
     <ng-container *ngTemplateOutlet="slottedInput"></ng-container>
   </div>
 </ng-container>
@@ -26,8 +26,7 @@
 </div>
 
 <ng-template #slottedInput>
-  <ng-content select="kirby-input-prefix"></ng-content>
   <ng-content select="input[kirby-input]"></ng-content>
   <ng-content select="textarea[kirby-textarea]"></ng-content>
-  <ng-content select="kirby-input-postfix"></ng-content>
+  <ng-content select="kirby-input-icon"></ng-content>
 </ng-template>
