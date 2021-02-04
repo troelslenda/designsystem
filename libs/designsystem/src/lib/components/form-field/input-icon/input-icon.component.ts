@@ -3,8 +3,8 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'kirby-input-icon',
   template: `
-    <button class="input-icon" [ngClass]="cssClass" ion-button icon-only color="transparent">
-      <ion-icon name="{{ icon }}"></ion-icon>
+    <button kirby-button class="input-icon" [ngClass]="cssClass" size="sm">
+      <kirby-icon [name]="icon"></kirby-icon>
     </button>
   `,
   styleUrls: ['./input-icon.component.scss'],

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormFieldDateInputIconExampleComponent } from '~/app/examples/form-field-example/examples/input/form-field-date-input-icon-example.component';
 import { FormFieldInputIconExampleComponent } from '~/app/examples/form-field-example/examples/input/form-field-input-icon-example.component';
 
 import { KirbyModule } from '@kirbydesign/designsystem';
@@ -31,6 +32,7 @@ const COMPONENT_DECLARATIONS = [
   FormFieldTextareaLabelExampleComponent,
   FormFieldTextareaCounterExampleComponent,
   FormFieldInputIconExampleComponent,
+  FormFieldDateInputIconExampleComponent,
 ];
 
 @NgModule({

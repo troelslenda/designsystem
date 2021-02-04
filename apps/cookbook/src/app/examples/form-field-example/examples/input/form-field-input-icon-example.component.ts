@@ -4,7 +4,7 @@ const config = {
   selector: 'cookbook-form-field-input-icon-example',
   template: `
 <kirby-form-field label="Input with Icon">
-  <input type="text" kirby-input placeholder="Write Date or Select"/>
+  <input type="text" kirby-input placeholder="Write something or Click Icon for Action "/>
   <kirby-input-icon icon="eye"  (click)="onClick($event)"></kirby-input-icon>
 </kirby-form-field>
 `,
