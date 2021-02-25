@@ -12,7 +12,7 @@ import { WindowRef } from '../../types/window-ref';
 import { ModalNavigationService } from '../modal/services/modal-navigation.service';
 import { TabsComponent } from '../tabs';
 
-import { PageComponent, PageContentComponent } from './page.component';
+import { PageActionsComponent, PageComponent, PageContentComponent } from './page.component';
 
 const size = DesignTokenHelper.size;
 const fatFingerSize = DesignTokenHelper.fatFingerSize();
@@ -20,7 +20,7 @@ const fatFingerSize = DesignTokenHelper.fatFingerSize();
 @Component({})
 class DummyComponent {}
 
-describe('PageComponent', () => {
+fdescribe('PageComponent', () => {
   let spectator: SpectatorHost<PageComponent>;
   let ionToolbar: HTMLElement;
   let tabBar: SpyObject<TabsComponent>;
@@ -142,4 +142,42 @@ describe('PageComponent', () => {
   async function triggerOnLeave(router: SpyObject<Router>) {
     await zone.run(() => router.navigate(['someUrl']));
   }
+});
+
+fdescribe('Page actions', () => {
+  const createHost = createHostFactory({
+    component: PageComponent,
+    declarations: [PageActionsComponent],
+    imports: [TestHelper.ionicModuleForTest, RouterTestingModule],
+    providers: [
+      {
+        provide: WindowRef,
+        useValue: window,
+      },
+    ],
+  });
+
+  let spectator: SpectatorHost<PageComponent>;
+  let ionToolbar: HTMLElement;
+
+  beforeEach(() => {
+    spectator = createHost(
+      `<kirby-page title="Test Page">
+        <kirby-page-actions *kirbyPageActions>
+          <ng-container>
+            <button kirby-button>Click me!</button>
+          </ng-container>
+        </kirby-page-actions>
+      </kirby-page>`
+    );
+
+    ionToolbar = spectator.queryHost('ion-toolbar');
+  });
+
+  it('should allow contents of kirby-page-actions to be wrapped in ng-container', async () => {
+    await TestHelper.whenReady(ionToolbar);
+
+    const button = spectator.queryHost('button[kirby-botton');
+    expect(button).toBeVisible();
+  });
 });
