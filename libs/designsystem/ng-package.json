@@ -11,11 +11,5 @@
       "@ionic/angular": "ionic"
     }
   },
-  "whitelistedNonPeerDependencies": [
-    "@angular/cdk",
-    "@ionic/angular",
-    "highcharts",
-    "moment",
-    "@fontsource/roboto"
-  ]
+  "whitelistedNonPeerDependencies": ["@angular/cdk", "@ionic/angular", "highcharts", "moment"]
 }
