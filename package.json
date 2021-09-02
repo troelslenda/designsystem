@@ -25,6 +25,7 @@
     "ng": "nx",
     "nx": "nx",
     "start": "ng serve",
+    "patch-ion-modal-js": "patch -b node_modules/@ionic/core/dist/esm/ion-modal.entry.js ./ion-modal.entry.js.$(md5 -q node_modules/@ionic/core/dist/esm/ion-modal.entry.js).patch",
     "build": "ng build",
     "build-polyfills": "webpack --config webpack.polyfills.config.js",
     "test": "ng test",

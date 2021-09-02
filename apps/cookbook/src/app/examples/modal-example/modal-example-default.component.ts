@@ -253,8 +253,19 @@ export class ModalExampleDefaultComponent {
     await this.modalController.showModal(config, this.onOverlayClose.bind(this));
   }
 
+  private clickedBefore = false;
+
   async showModal() {
+    if (!this.clickedBefore) {
+      this.clickedBefore = true;
+    } else {
+      console.timeLog('showModal', '🍌 clicked again!');
+      return;
+    }
+
     await this.showOverlay('modal');
+
+    this.clickedBefore = false;
   }
 
   async showCompact() {

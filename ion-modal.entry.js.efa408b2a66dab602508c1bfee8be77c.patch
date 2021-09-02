@@ -1,0 +1,11 @@
+379a380,381
+>     console.timeLog('showModal', '🍐 present()');
+> 
+387a390
+>     console.timeLog('showModal', '🍐 present() > await attachComponent');
+388a392
+>     console.timeLog('showModal', '🍐 present() > await deepReady');
+389a394
+>     console.timeLog('showModal', "🍐 present() > this.el.classList.add('show-modal')");
+390a396
+>     console.timeLog('showModal', "🍐 present() < this.el.classList.add('show-modal')");

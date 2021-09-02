@@ -23,6 +23,9 @@ export class ModalHelper {
   ) {}
 
   public async showModalWindow(config: ModalConfig): Promise<Overlay> {
+    console.log('🍊 showModalWindow(): starting timer');
+    console.time('showModal');
+
     config.flavor = config.flavor || 'modal';
     const modalPresentingElement = await this.getPresentingElement(config.flavor);
 
@@ -48,6 +51,12 @@ export class ModalHelper {
       this.windowRef.nativeWindow.document.body.classList.add(allow_scroll_class);
     }
 
+    console.timeLog(
+      'showModal',
+      "🍊 document.body.querySelector('ion-modal'):",
+      document.body.querySelector('ion-modal')
+    );
+    console.timeLog('showModal', '🍊 > await this.ionicModalController.create');
     const ionModal = await this.ionicModalController.create({
       component: config.flavor === 'compact' ? ModalCompactWrapperComponent : ModalWrapperComponent,
       cssClass: [
@@ -68,6 +77,7 @@ export class ModalHelper {
       enterAnimation,
       leaveAnimation,
     });
+    console.timeLog('showModal', '🍊 < await this.ionicModalController.create');
 
     if (config.interactWithBackground) {
       ionModal.onDidDismiss().then(() => {
@@ -75,7 +85,28 @@ export class ModalHelper {
       });
     }
 
+    // >>> the modal exists at this point but it does *not* have class show-modal so the backdrop doesn't show
+    console.timeLog(
+      'showModal',
+      "🍊 document.body.querySelector('ion-modal'):",
+      document.body.querySelector('ion-modal')
+    );
+    // >>> this seems to fix it
+    // document.body.querySelector('ion-modal').classList.add('show-modal');
+
+    // >>> this call takes ~600 mSecs, during which the UI can still receive clicks!
+    console.timeLog('showModal', '🍊 > await ionModal.present()');
     await ionModal.present();
+    console.timeLog('showModal', '🍊 < await ionModal.present()');
+
+    console.timeLog(
+      'showModal',
+      "🍊 document.body.querySelector('ion-modal'):",
+      document.body.querySelector('ion-modal')
+    );
+
+    console.timeLog('showModal', '🍊 showModalWindow() exit');
+    console.timeEnd('showModal');
 
     return {
       dismiss: ionModal.dismiss.bind(ionModal),
