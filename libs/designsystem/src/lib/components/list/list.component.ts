@@ -152,6 +152,8 @@ export class ListComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Output() itemSelect = new EventEmitter<any>();
 
+  @Input() highlightSelection: boolean = true;
+
   @ContentChildren(ItemComponent)
   kirbyItems: ItemComponent[];
 
@@ -223,8 +225,10 @@ export class ListComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   onItemSelect(item: any) {
-    this._selectedItem = item;
-    this.itemSelect.emit(this._selectedItem);
+    if (this.highlightSelection) {
+      this._selectedItem = item;
+    }
+    this.itemSelect.emit(item);
   }
 
   onSwipeActionSelect(args: any): void {
