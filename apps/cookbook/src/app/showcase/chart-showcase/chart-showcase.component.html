@@ -57,6 +57,17 @@
   </kirby-card>
 </p>
 
+<h3>Doughnut Chart</h3>
+<p>The Doughnut chart visualizes data from different categories as arcs.</p>
+<p>To render a doughnut chart set <code>type</code> to <code>'doughnut'</code>.</p>
+<p>
+  <kirby-card [mode]="_cardMode" [hasPadding]="_cardHasPadding">
+    <cookbook-example-viewer [html]="doughnutExample.template">
+      <cookbook-chart-example-doughnut #doughnutExample></cookbook-chart-example-doughnut>
+    </cookbook-example-viewer>
+  </kirby-card>
+</p>
+
 <kirby-divider [hasMargin]="true"></kirby-divider>
 
 <h2 id="custom-options">Custom Options</h2>

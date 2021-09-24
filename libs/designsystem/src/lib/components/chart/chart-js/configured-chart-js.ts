@@ -1,8 +1,10 @@
 import {
+  ArcElement,
   BarController,
   BarElement,
   CategoryScale,
   Chart,
+  DoughnutController,
   Legend,
   LinearScale,
   LineController,
@@ -15,8 +17,8 @@ import { mergeDeepAll } from '../../../helpers/merge-deep';
 import { CHART_GLOBAL_DEFAULTS } from '../configs/global-defaults.config';
 
 const CHART_SCALES = [CategoryScale, LinearScale];
-const CHART_ELEMENTS = [BarElement, LineElement, PointElement];
-const CHART_CONTROLLERS = [BarController, LineController];
+const CHART_ELEMENTS = [BarElement, LineElement, PointElement, ArcElement];
+const CHART_CONTROLLERS = [BarController, LineController, DoughnutController];
 const CHART_PLUGINS = [annotationPlugin];
 
 /* Order matters; defaults must be merged after register as 

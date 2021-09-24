@@ -10,13 +10,17 @@ export const CHART_GLOBAL_DEFAULTS = {
   resizeDelay: 10,
   elements: {
     bar: {
-      backgroundColor: scriptedBackgroundColor,
       hoverBackgroundColor: scriptedHoverBackgroundColor,
+      backgroundColor: scriptedBackgroundColor,
     },
     line: {
       borderColor: scriptedBackgroundColor,
       borderWidth: 2,
       tension: 0.3,
+    },
+    doughnut: {},
+    arc: {
+      backgroundColor: scriptedBackgroundColor,
     },
   },
   scales: {

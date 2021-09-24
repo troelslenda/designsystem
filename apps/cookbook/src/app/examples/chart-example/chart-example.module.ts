@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ChartExampleDoughnutComponent } from '~/app/examples/chart-example/examples/chart-example-doughnut.component';
 
 import { KirbyModule } from '@kirbydesign/designsystem';
 
@@ -25,6 +26,7 @@ const COMPONENT_DECLARATIONS = [
   ChartExampleAccessibilityComponent,
   ChartExampleAnnotationsComponent,
   ChartExampleLineComponent,
+  ChartExampleDoughnutComponent,
 ];
 
 @NgModule({

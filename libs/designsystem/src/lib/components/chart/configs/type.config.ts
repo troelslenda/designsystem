@@ -97,4 +97,7 @@ export const CHART_TYPES_CONFIG: ChartTypesConfig = {
       },
     },
   },
+  doughnut: {
+    type: 'doughnut',
+  },
 };

@@ -266,5 +266,47 @@ describe('ChartJSService with ChartConfigService', () => {
         });
       });
     });
+
+    describe('when type is ChartType.doughnut', () => {
+      let chart: Chart;
+
+      it('should use correct ChartJS type', () => {
+        chartJSService.renderChart({
+          targetElement: canvasElement,
+          type: 'doughnut',
+          data: [1, 2, 3],
+        });
+        const chart = chartJSService['chart'];
+
+        expect(chart.config.type).toBe('doughnut');
+      });
+
+      describe('and no custom options are passed', () => {
+        beforeEach(() => {
+          chartJSService.renderChart({
+            targetElement: canvasElement,
+            type: 'doughnut',
+            data: [1, 2, 3],
+            dataLabels: ['one', 'two', 'three'],
+          });
+          chart = chartJSService['chart'];
+        });
+
+        it('should have correct background color for elements', () => {
+          expect(chart.options.elements.arc.backgroundColor).toEqual(
+            ColorHelper.getThemeColorHexString('secondary')
+          );
+        });
+
+        it('should have no legend', () => {
+          expect(chart.options.plugins.legend.display).toBeFalse();
+        });
+
+        // it('should have correct hover background color', () => {
+        //   console.log(chart.options.elements.arc.backgroundColor);
+        //   expect(chart.options.elements.arc.hoverBackgroundColor).toBe('#00e89a');
+        // });
+      });
+    });
   });
 });
